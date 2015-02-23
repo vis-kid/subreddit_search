@@ -9,10 +9,18 @@
 <body>
   <script type="text/x-handlebars" data-template-name='application'>
     <h2>Subreddit Search</h2>
+    <ul>
+		  <li>{{#link-to 'index'}}Home{{/link-to}}</li>
+		  <li>{{#link-to 'about'}}About{{/link-to}}</li>
+    </ul>
 
     {{outlet}}
   </script>
 
+  <script type="text/x-handlebars" id="about">
+    <p>This is a simple Ember app that let’s you search Subreddits via a search field. That’s it :)</p>
+  </script>
+  
 
   <script type="text/x-handlebars" id="index">
 		<h3>Index page</h3>
