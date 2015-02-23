@@ -10,8 +10,8 @@
   <script type="text/x-handlebars" data-template-name='application'>
     <h2>Subreddit Search</h2>
     <ul>
-		  <li>{{#link-to 'index'}}Home{{/link-to}}</li>
-		  <li>{{#link-to 'about'}}About{{/link-to}}</li>
+      <li>{{#link-to 'index'}}Home{{/link-to}}</li>
+      <li>{{#link-to 'about'}}About{{/link-to}}</li>
     </ul>
 
     {{outlet}}
@@ -28,12 +28,12 @@
       <button type='submit'>Go!</button>
     </form>
 
-		<h3>Links from /r/{{subredditHeader}}</h3>
+    <h3>Links from /r/{{subredditHeader}}</h3>
     <ul>
     {{#each link in model}}
       <li>
       {{#if link.thumbnailUrl}}
-			  <img {{bindAttr src='link.thumbnailUrl'}}>
+        <img {{bindAttr src='link.thumbnailUrl'}}>
       {{/if}}
         <a{{bindAttr href='link.url'}} target='_blank'>{{link.title}}</a>
       </li>
