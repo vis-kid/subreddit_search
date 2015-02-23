@@ -23,6 +23,11 @@
   
 
   <script type="text/x-handlebars" id="index">
+    <form {{action 'loadList' on='submit'}}>
+      {{view Ember.TextField valueBinding='subreddit' id='subreddit' placeholder='Subreddit' required='true'}}
+      <button type='submit'>Go!</button>
+    </form>
+
 		<h3>Links from /r/{{subredditHeader}}</h3>
     <ul>
     {{#each link in model}}
