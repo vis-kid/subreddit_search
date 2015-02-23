@@ -6,6 +6,29 @@ App.Router.map(function() {
 
 App.IndexRoute = Ember.Route.extend({
   model: function() {
-    return ['red', 'yellow', 'blue'];
+    return App.RedditSearch.findAll('aww');
+  }
+});
+
+App.IndexController = Ember.ObjectController.extend({
+  subredditHeader: 'aww'
+});
+
+App.RedditSearch = Ember.Object.extend({
+	thumbnailUrl: function(){ 
+	  var thumbnail = this.get('thumbnail');
+    return(thumbnail ==='default')?null:thumbnail;
+  }.property('thumbnail')
+});
+
+App.RedditSearch.reopenClass({
+  findAll: function(subreddit) {
+    var links = [];
+    $.getJSON('http://www.reddit.com/r/' + subreddit + '/.json?jsonp=?').then(function(response) {
+      response.data.children.forEach(function(child) {
+        links.pushObject(App.RedditSearch.create(child.data));
+      });
+    });
+    return links;
   }
 });

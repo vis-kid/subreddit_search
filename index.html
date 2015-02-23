@@ -23,10 +23,15 @@
   
 
   <script type="text/x-handlebars" id="index">
-		<h3>Index page</h3>
+		<h3>Links from /r/{{subredditHeader}}</h3>
     <ul>
-    {{#each item in model}}
-      <li>{{item}}</li>
+    {{#each link in model}}
+      <li>
+      {{#if link.thumbnailUrl}}
+			  <img {{bindAttr src='link.thumbnailUrl'}}>
+      {{/if}}
+        <a{{bindAttr href='link.url'}} target='_blank'>{{link.title}}</a>
+      </li>
     {{/each}}
     </ul>
   </script>
