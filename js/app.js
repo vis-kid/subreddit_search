@@ -12,8 +12,8 @@ App.IndexRoute = Ember.Route.extend({
 
 App.IndexController = Ember.ObjectController.extend({
   subredditHeader: 'aww',
-	actions: {
-		loadList: function() {
+  actions: {
+    loadList: function() {
       var value = this.get('subreddit');
       if(value) {
         this.set('subredditHeader', value);
@@ -25,10 +25,10 @@ App.IndexController = Ember.ObjectController.extend({
 });
 
 App.RedditSearch = Ember.Object.extend({
-	thumbnailUrl: function(){ 
-	  var thumbnail = this.get('thumbnail');
-    return(thumbnail ==='default')?null:thumbnail;
-  }.property('thumbnail')
+  thumbnailUrl: function(){
+    var thumbnail = this.get('thumbnail');
+      return(thumbnail ==='default')?null:thumbnail;
+    }.property('thumbnail')
 });
 
 App.RedditSearch.reopenClass({
